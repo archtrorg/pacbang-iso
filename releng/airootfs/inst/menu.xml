@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+
+
+<menu id="root-menu" label="Openbox 3">
+  <separator label="- Pacbang -" />
+<item label="LXTerminal (Alt+t)">
+<action name="Execute"><command>lxterminal</command></action>
+  </item>
+  <item label="PCManFM  (Alt+f)">
+<action name="Execute"><command>pcmanfm</command></action>
+  </item>
+  <item label="Geany       (Alt+g)">
+<action name="Execute"><command>geany</command></action>
+  </item>
+  <item label="Firefox       (Alt+i)">
+<action name="Execute"><command>firefox</command></action>
+  </item>
+  <item label="DMenu      (Alt+d)">
+<action name="Execute"><command>dmenu_run -b -fn -misc-fixed-*-*-*-*-20-200-*-*-*-*-*-*  -i -nf 'gray' -sb '#1793d0' -nb '#353535'</command></action>
+  </item>
+  <item label="Nitrogen   (Alt+n)">
+<action name="Execute"><command>nitrogen</command></action>
+  </item>
+  <separator />
+  <item label="OBConf">
+<action name="Execute"><command>obconf</command></action>
+  </item>
+  <item label="LXAppearance">
+<action name="Execute"><command>lxappearance</command></action>
+  </item>
+  <item label="LXRandr">
+<action name="Execute"><command>lxrandr</command></action>
+  </item>
+  <item label="LXInput">
+<action name="Execute"><command>lxinput</command></action>
+  </item>
+  <separator />
+  <menu id="Config" label="Configuration">
+	<menu id="Base" label="Base">
+		<item label="fstab">
+			<action name="Execute"><command>gksu geany /etc/fstab</command></action>
+		</item>
+		<item label="hosts">
+			<action name="Execute"><command>gksu geany /etc/hosts</command></action>
+		</item>	 
+		<item label="hostname">
+			<action name="Execute"><command>gksu geany /etc/hostname</command></action>
+		</item>	 
+		<item label="locale.conf">
+			<action name="Execute"><command>gksu geany /etc/locale.conf</command></action>
+		</item>
+		<item label="locale.gen">
+			<action name="Execute"><command>gksu geany /etc/locale.gen</command></action>
+		</item>
+		<item label="mkinitcpio.conf">
+			<action name="Execute"><command>gksu geany /etc/mkinitcpio.conf</command></action>
+		</item>	 
+		<item label="sudoers">
+			<action name="Execute"><command>gksu geany /etc/sudoers</command></action>
+		</item>
+		<item label="vconsole.conf">
+			<action name="Execute"><command>gksu geany /etc/vconsole.conf</command></action>
+		</item>	 	
+      </menu>
+	<menu id="BashConf" label="Bash">
+		<item label=".bash_logout">
+			<action name="Execute"><command>geany -m ~/.bash_logout</command></action>
+		</item>
+		<item label=".bash_profile">
+			<action name="Execute"><command>geany -m ~/.bash_profile</command></action>
+		</item>
+		<item label=".bashrc">
+			<action name="Execute"><command>geany -m ~/.bashrc</command></action>
+		</item>			  
+	</menu>
+	<menu id="DE" label="DE">
+		<item label=".conkyrc">
+			<action name="Execute"><command>geany -m ~/.conkyrc</command></action>
+		</item>
+		<item label="environment">
+			<action name="Execute"><command>gksu geany /etc/environment</command></action>
+		</item> 
+		<item label=".gtkrc-2.0">
+			<action name="Execute"><command>geany -m ~/.gtkrc-2.0</command></action>
+		</item>
+		<item label=".gtkrc-2.0 (root)">
+			<action name="Execute"><command>gksu geany /root/.gtkrc-2.0</command></action>
+		</item>
+		<item label="settings.ini (gtk-3.0)">
+			<action name="Execute"><command>geany ~/.config/gtk-3.0/settings.ini</command></action>
+		</item>
+		<item label="oblogout.conf">
+			<action name="Execute"><command>gksu geany /etc/oblogout.conf</command></action>
+		</item>
+		<item label="tint2rc">
+			<action name="Execute"><command>geany -m ~/.config/tint2/tint2rc</command></action>
+		</item>
+		<item label="tint2 GUI">
+			<action name="Execute"><command>tint2conf</command></action>
+		</item>	
+	 </menu>  
+	  <menu id="OpenboxConf" label="Openbox">
+			<item label="autostart">
+				<action name="Execute"><command>geany -m ~/.config/openbox/autostart</command></action>
+			</item>
+			<item label="environment">
+				<action name="Execute"><command>geany -m ~/.config/openbox/environment</command></action>
+			</item>
+			<item label="menu.xml">
+				<action name="Execute"><command>geany -m ~/.config/openbox/menu.xml</command></action>
+			</item>
+			<item label="rc.xml">
+				<action name="Execute"><command>geany -m ~/.config/openbox/rc.xml</command></action>
+			</item>
+			<item label="--reconfigure">
+				<action name="Execute"><command>openbox --reconfigure</command></action>
+			</item>						
+	  </menu>
+      <menu id="pacman" label="Pacman">
+			<item label="mirrorlist">
+				<action name="Execute"><command>gksu geany /etc/pacman.d/mirrorlist</command></action>
+			</item>	
+			<item label="pacman.conf">
+				<action name="Execute"><command>gksu geany /etc/pacman.conf</command></action>
+			</item>				    
+	  </menu>	
+	  <menu id="X11" label="X11">
+			<item label=".xinitrc">
+				<action name="Execute"><command>geany -m ~/.xinitrc</command></action>
+			</item>	  
+      </menu>		  	
+  </menu>			
+  <separator />
+  	  <menu id="logout" label="Logout...">
+  <item label="Lock">
+     <action name="Execute"><command>xlock -mode blank &</command></action>
+  </item>
+  <item label="Logout">
+     <action name="Execute"><command>openbox --exit</command></action>
+  </item>
+    <item label="Reboot">
+     <action name="Execute"><command>systemctl reboot</command></action>
+  </item>
+    <item label="Shutdown">
+     <action name="Execute"><command>systemctl poweroff</command></action>
+  </item>
+  </menu>
+</openbox_menu>

@@ -1,0 +1,37 @@
+# !/bin/bash
+#
+# Update Pacbang Installer Script (version 1.0 - September 2015)
+#
+# Written by Carl Duff
+#
+# This script will automatically download the latest version of the installer
+# from github.
+#
+# This program is free software, provided under the GNU General Public License
+# as published by the Free Software Foundation. So feel free to copy, distribute,
+# or modify it as you wish.
+#
+
+VERSION="Update Pacbang Installer 1.0"
+ANSWER="/tmp/.aif"
+
+# Check user is root, and that there is an active internet connection
+# Seperated the checks into seperate "if" statements for readability.
+	
+  dialog --backtitle "$VERSION" --title " Pacbang Installation Update " --infobox "\nPlease wait... Even geduld aub... Bitte warten... Παρακαλώ περιμένετε... Attendere prego... Vennligst Vent... Proszę czekać... Подождите, пожалуйста... Por favor espera...\n" 0 0
+  sleep 2
+  
+  if [[ $(whoami) != "root" ]]; then
+     dialog --backtitle "$VERSION" --title " Error " --msgbox "\n- The installer must be run as root.\n- Je moet aangemeld zijn als ROOT.\n- Der Installer muss mit Superuser-Rechten gestartet werden.\n- Τον εγκαταστάτη πρέπει να εκτελούνται ως root.\n- L'installer deve essere eseguito come Root.\n- Installereren må kjøres som root.\n- Instalator musi być uruchomiony z konta administratora (root).\n- Установщик должен выполняться только администратором системы (пользователем root).\n- El instalador debe ejecutarse como root.\n" 0 0
+     exit 1
+  fi
+  
+  if [[ ! $(ping -c 1 google.com) ]]; then
+     dialog --backtitle "$VERSION" --title " Error " --msgbox "\n- Internet connection test failed.\n- Test internetverbinding mislukt.\n- Es konnte keine Verbindung zum Internet hergestellt werden.\n- οκιμή σύνδεσης στο Internet απέτυχε.\n- Il test della connessione ad Internet è fallito.\n- Internett tilkobling feilet.\n- Test połączenia z Internetem nie powiódł się.\n- Нет соединения с Интернетом.\n- Prueba de conexión a Internet fallida.\n" 0 0
+     exit 1
+  fi
+  
+  clear
+  wget -N https://github.com/CarlDuff/abif/archive/master.zip
+  unzip -o master.zip -d /
+  /abif-master/abif

@@ -1,0 +1,39 @@
+# conky configuration
+#
+# Adapted from conky script found at:
+# http://crunchbanglinux.org/forums/topic/59/my-conky-config/
+
+background yes
+use_xft yes
+xftfont sans:size=72
+xftalpha 1
+update_interval 1.0
+total_run_times 0
+own_window no
+own_window_transparent yes
+own_window_type override
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 0 0
+maximum_width 700
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color firebrick
+default_shade_color 000000
+default_outline_color d9d7d6
+alignment mm
+gap_x 0
+gap_y 0
+no_buffers yes
+uppercase no
+override_utf8_locale no
+##############################################
+#  Output
+##############################################
+TEXT
+${color #353535}${font sans:size=48} ${time %d %B %Y} 
+${voffset -45}${hr 1}
+${font Sans:style=Bold:size=11}${voffset -60}    Kernel: ${kernel} ${font Sans:size=11}| ${font Sans:style=Bold:size=11}RAM: ${memperc}% ${font Sans:size=11}| ${font Sans:style=Bold:size=11}HD: ${fs_used} / ${fs_size} ${font Sans:size=11}| ${font Sans:style=Bold:size=11}CPU: ${cpu cpu0}%
+

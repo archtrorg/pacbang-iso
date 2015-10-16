@@ -1,0 +1,5 @@
+xset -dpms; xset s off &
+(sleep 1s && tint2) &
+(sleep 2s && volumeicon) &
+(sleep 2s && nitrogen --restore) &
+(sleep 1s && conky ~/.conkyrc) &

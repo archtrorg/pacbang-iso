@@ -1,0 +1,73 @@
+1. Update System
+----------------
+The FIRST thing to do is to update your system ("$" is the prompt)
+$ sudo pacman -Syyu
+
+If there is an error when updating, check your internet connection. Otherwise, try refreshing
+the package keys (used to verify that packages are official) before trying again
+$ sudo pacman-key --init
+$ sudo pacman-key --populate archlinux
+$ sudo pacman-key --refresh-keys
+
+
+2. If no Sound
+---------------
+ALSA mutes the main sound channel by default:
+
+- Right click volume icon, "Open Mixer"
+- First two "Master" channels should have "00" at the bottom.
+- If either is "MM" (mute), use the left/right arrow keys to highlight channel name and press "m"
+- Use up/down arrow keys to set base volume
+- Close window, use mouse scroll to set volume
+
+If this does not work, it is also possible that the wrong default sound device has been selected:
+
+- Right click the volume icon, select "preferences"
+- Select "Channels" tab
+- Select a different / the other device.
+
+3. Pulse Audio
+--------------
+To install PulseAudio
+$ sudo pacman -S pulseaudio
+
+
+4. GUI Sound Mixer
+------------------
+gnome-alsamixer is recommended if you want to replace alsamixer for ALSA.
+pavucontrol is recommended for PulseAudio.
+- $ pacman -S gnome-alsamixer (or pavucontrol)
+- Right click volume icon, "Preferences"
+- Click "status icon"
+- Replace "lxterminal -e alsamixer" with "gnome-alsamixer" or "pavucontrol"
+- Close window.
+
+
+5. Enable AUR (Arch User Repository)
+------------------------------------
+- First ensure the base-devel package group has been installed ("$" is the prompt)
+$ sudo pacman -S base-devel
+
+- Edit /etc/pacman.conf to add the following repository for yaourt (an AUR helper)
+[archlinuxfr]
+SigLevel = Never
+Server = http://repo.archlinux.fr/$arch
+
+- Install yaourt ("$" is the prompt)
+$ pacman -Sy yaourt
+
+- AUR packages can now be searched for and installed (DO NOT USE "sudo" with yaourt)
+$ yaourt (package name)
+
+
+6. Gstreamer Codecs
+-------------------
+Required codecs should be installed as dependencies of desired multimedia player(s) (e.g. vlc).
+They can be installed explicitly with the command ("$" is the prompt)
+$ sudo pacman -S gstreamer gstreamer0.10 gst-plugins-base gst-plugins-good
+
+
+7. Java
+-------
+To enable Java support in your browser ("$" is the prompt)
+$ sudo pacman -S jre8-openjdk icedtea-web
